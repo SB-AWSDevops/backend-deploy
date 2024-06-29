@@ -17,6 +17,10 @@ pipeline {
     parameters {
 
         string(name: 'appVersion', defaultValue: '1.0.0', description: 'what is the application version?')
+        choice(
+          name: 'select'
+          choices: ['apply','destroy']
+        )
   
     }
 
@@ -39,6 +43,11 @@ pipeline {
       }
 
       stage('Plan') {
+        when{
+          expression{
+            paramas.select == 'apply'
+          }
+        }
         steps {
           sh """
           cd terraform
@@ -48,6 +57,12 @@ pipeline {
       }
 
       stage('Deploy') {
+        when{
+          expression{
+            paramas.select == 'destroy'
+          }
+        }
+        s
         steps {
           sh """
           cd terraform

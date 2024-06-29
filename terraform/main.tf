@@ -63,12 +63,6 @@ resource "aws_ami_from_instance" "backend" {
 }
 
 
-
-
-
-
-
-
 #delete the backend instance 
 resource "null_resource" "backend_delete" {
   triggers = {
