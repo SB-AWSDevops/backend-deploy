@@ -1,3 +1,3 @@
 # cd-pipeline-setup - OUTLINE
 
-![alt text](cd-pipeline.jpg)
+![alt text](cd.jpg)
