@@ -65,13 +65,27 @@ pipeline {
       stage('Deploy') {
         when{
           expression{
-            paramas.select == 'destroy'
+            paramas.select == 'apply'
           }
         }
         steps {
           sh """
           cd terraform
           terraform apply -auto-approve -var="app_version=${params.appVersion}"
+          """
+        }
+      }
+
+      stage('Destroy') {
+        when{
+          expression{
+            paramas.select == 'destroy'
+          }
+        }
+        steps {
+          sh """
+          cd terraform
+          terraform destroy -auto-approve -var="app_version=${params.appVersion}"
           """
         }
       }
