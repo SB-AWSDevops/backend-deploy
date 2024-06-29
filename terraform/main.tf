@@ -57,10 +57,17 @@ resource "aws_ec2_instance_state" "backend" {
 
 #take the AMI of the created backend instance
 resource "aws_ami_from_instance" "backend" {
-  name               = "${var.project_name}-${var.env}-${var.common_tags.Component}-${format("YYYYMMDDHHMMSS", time())}"
+  name               = "${var.project_name}-${var.env}-${var.common_tags.Component}-${replace(timestamp(), ":", "")}"
   source_instance_id = module.backend.id
   depends_on         = [aws_ec2_instance_state.backend]
 }
+
+
+
+
+
+
+
 
 #delete the backend instance 
 resource "null_resource" "backend_delete" {
