@@ -68,7 +68,6 @@ pipeline {
             paramas.select == 'destroy'
           }
         }
-        s
         steps {
           sh """
           cd terraform
