@@ -16,10 +16,16 @@ pipeline {
     }
     parameters {
 
-        string(name: 'appVersion', defaultValue: '1.0.0', description: 'what is the application version?')
+        string(
+          name: 'appVersion', 
+          defaultValue: '1.0.0', 
+          description: 'what is the application version?'
+          )
+
         choice(
-          name: 'select'
-          choices: ['apply','destroy']
+          name: 'select',
+          choices: ['apply','destroy'],
+          description: 'Select the action to perform'
         )
   
     }
