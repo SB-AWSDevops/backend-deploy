@@ -47,11 +47,11 @@ pipeline {
         }
       }
 
-      stage('Deploy') {
+      stage('Destroy') {
         steps {
           sh """
           cd terraform
-          terraform apply -auto-approve -var="app_version=${params.appVersion}"
+          terraform destroy -auto-approve -var="app_version=${params.appVersion}"
           """
         }
       }
