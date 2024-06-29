@@ -47,14 +47,14 @@ pipeline {
         }
       }
 
-      // stage('Deploy') {
-      //   steps {
-      //     sh """
-      //     cd terraform
-      //     terraform apply -auto-approve
-      //     """
-      //   }
-      // }
+      stage('Deploy') {
+        steps {
+          sh """
+          cd terraform
+          terraform apply -auto-approve
+          """
+        }
+      }
     }
       post {
         always {
