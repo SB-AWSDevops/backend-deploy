@@ -14,11 +14,11 @@ pipeline {
       def appVersion = ''
         nexusUrl = 'nexus.surisetty.online:8081'
     }
-    // parameters {
+    parameters {
 
-    //     string(name: 'appVersion', defaultValue: '1.0.0', description: 'what is the application version?')
+        string(name: 'appVersion', defaultValue: '1.0.0', description: 'what is the application version?')
   
-    // }
+    }
 
     stages {
     stage('Print the version') {
